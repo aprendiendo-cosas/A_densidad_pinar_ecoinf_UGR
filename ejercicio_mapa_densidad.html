@@ -6,7 +6,7 @@
 <link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
 .mac-os-11 { --title-bar-height: 28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
@@ -22,8 +22,6 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) { 
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
 }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
@@ -51,7 +49,7 @@ sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inh
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
 figure > table { margin: 0px; }
-tr { break-inside: avoid; break-after: auto; }
+thead, tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
 table.md-table td { min-width: 32px; }
@@ -66,16 +64,17 @@ div.hr:focus { cursor: none; }
 #write.fences-no-line-wrapping pre { white-space: pre; }
 #write pre.ty-contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
 .md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 #write .md-fences.mock-cm { white-space: pre-wrap; }
 .md-fences.md-fences-with-lineno { padding-left: 0px; }
 #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
 .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
 .CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
 .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
 .footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
 li .mathjax-block, li p { margin: 0.5rem 0px; }
@@ -87,7 +86,7 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print { 
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
@@ -96,7 +95,7 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
 p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
 #write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
 p > .md-image:only-child { display: inline-block; width: 100%; }
@@ -130,13 +129,14 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 }
 a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
 .footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
 code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
 .md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
 code { text-align: left; }
-a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
 .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
 [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
@@ -145,7 +145,7 @@ table tr th { border-bottom-width: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
-mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); background-position: initial initial; background-repeat: initial initial; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
 .md-expand mark .md-meta { opacity: 0.3 !important; }
 mark .md-meta { color: rgb(0, 0, 0); }
@@ -157,7 +157,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
 .md-fences.md-fences-math { font-size: 1em; }
 .md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
-.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
 .typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
 .typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
 .typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
@@ -172,9 +172,9 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
-.outline-expander::before { content: ''; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
 .outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
-.outline-expander:hover::before { content: ''; }
+.outline-expander:hover::before { content: ""; }
 .outline-h1 > .outline-item { padding-left: 0px; }
 .outline-h2 > .outline-item { padding-left: 1em; }
 .outline-h3 > .outline-item { padding-left: 2em; }
@@ -186,19 +186,20 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
 .outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
 .outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
-.outline-item-open > .outline-item > .outline-expander::before { content: ''; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
 .outline-children { display: none; }
 .info-panel-tab-wrapper { display: none; }
 .outline-item-open > .outline-children { display: block; }
 .typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
 .typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
 .typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
-.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: '−'; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
 .typora-export-collapse-outline .outline-children { display: none; }
 .typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
 .typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 .md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
 
 
 :root {
@@ -457,11 +458,8 @@ code {
     html {
         font-size: 13px;
     }
-    table,
     pre {
         page-break-inside: avoid;
-    }
-    pre {
         word-wrap: break-word;
     }
 }
@@ -593,6 +591,6 @@ header, .context-menu, .megamenu-content, footer{
 </style><title>ejercicio_mapa_densidad</title>
 </head>
 <body class='typora-export'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='ejercicio-de-reflexión-sobre-los-mapas-de-densidad-que-hemos-generado'><span>Ejercicio de reflexión sobre los mapas de densidad que hemos generado</span></h1><blockquote><ul><li><strong><em><span>Versión</span></em></strong><span>: 1.0</span></li><li><strong><em><span>Asignatura (titulación)</span></em></strong><span>: Ciclo de gestión del dato: ecoinformática (máster conservación, gestión y restauración de la biodiversidad. UGR). Curso 2020-2021</span></li><li><strong><em><span>Autor</span></em></strong><span>: Curro Bonet-García (fjbonet@uco.es)</span></li></ul></blockquote><p>&nbsp;</p><h2 id='objetivos-del-ejercicio'><span>Objetivos del ejercicio</span></h2><p><span>Esta actividad tiene el siguiente objetivo de aprendizaje:</span></p><ul><li><span>Entrenar la capacidad de comparar con criterio distintas formas de representar en el espacio una variable ambiental concreta.</span></li><li><span>Mejorar la capacidad de cuestionar la validez de un mapa en función de factores relacionados con la ecología de la variable representada. </span></li><li><span>Aprender que completar un flujo de trabajo satisfactoriamente no tiene por qué implicar que el resultado sea válido desde un punto de vista ecológico.</span></li><li><span>Evaluar una parte del conocimiento adquirido en el &quot;tema&quot; de caracterización de la densidad de los pinares de repoblación.</span></li></ul><h2 id='tareas-a-realizar'><span>Tareas a realizar</span></h2><p><span>Para satisfacer los objetivos anteriores deberás reflexionar sobre los dos mapas de densidad que hemos obtenido y sobre otro que no hemos visto en clase. Lee atentamente el siguiente texto que describe los mapas anteriores. Recuerda que </span><a href='https://rawcdn.githack.com/aprendiendo-cosas/TP_densidad_pinar_ecoinf_UGR/2021__2022/guion_densidad_pinares.html'><span>aquí</span></a><span> puedes ver el guión que describe cómo obtuvimos dos de los tres mapas de densidad comentados. </span></p><p><span>A partir de un inventario forestal (en el que se expresa la densidad en árboles/superficie) hemos obtenido dos mapas diferentes usando distintas metodologías:</span></p><p><span>Mediante imputación hemos asignado a todos los polígonos del mismo estrato la densidad promedio de todas las parcelas que hay en dicho estrato. De esta forma podemos asignar valores de densidad a los polígonos en los que no haya caído ninguna parcela de inventario. La siguiente imagen muestra el resultado obtenido en una zona concreta de Sierra Nevada. La línea roja representa el límite norte del espacio protegido (descarga </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2021-2022/geoinfo/pnatural_23030.zip'><span>aquí</span></a><span> el fichero de formas con los límites de Sierra Nevada). </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2021-2022/geoinfo/densidad_pinar_x_estratos.tif'><span>Aquí</span></a><span> puedes descargar la capa de densidad obtenida de esta forma.</span></p><p><img src="https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2021-2022/imagenes/imputacion.jpeg" referrerpolicy="no-referrer" alt="image"></p><p>&nbsp;</p><p><span>Además, mediante la técnica de interpolación más sencilla (IDW), obtuvimos otro mapa de densidad de los pinares de repoblación. En este caso asumimos que la densidad de un punto en el que no hay inventarios depende de la densidad de los puntos que tenga más cerca. La siguiente imagen muestra el resultado obtenido. Y </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2021-2022/geoinfo/densidad_pinar_interpolada.tif'><span>aquí</span></a><span> puedes descargar la capa de densidad obtenida de esta forma. </span></p><p><img src="https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2021-2022/imagenes/interpolacion.jpeg" referrerpolicy="no-referrer" alt="image"></p><p><span>Al margen de las dos capas anteriores os paso aquí otro mapa que muestra la densidad de los pinares de Sierra Nevada. En esta ocasión se ha obtenido mediante teledetección. En este mapa la densidad se expresa en porcentaje de cobertura del suelo, no en árboles por superficie como en los casos anteriores. Esta capa procede de un producto generado para toda Europa por el programa </span><a href='https://www.copernicus.eu/en'><span>Copernicus</span></a><span>. </span><a href='https://land.copernicus.eu/pan-european/high-resolution-layers/forests/tree-cover-density/status-maps/tree-cover-density-2018'><span>Aquí</span></a><span> tienes el enlace de descarga. Y </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2021-2022/biblio/Forest_Technical_Specs_Public_v11.pdf'><span>aquí</span></a><span> un informe que detalla la metodología que han seguido para generar el mapa. Mira la página 7 del informe para saber cómo se ha calculado la densidad del bosque. La siguiente imagene muestra el aspecto de la densidad según este producto en una porción de nuestra zona de estudio.</span></p><p><img src="https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2021-2022/imagenes/teledeteccion.jpeg" referrerpolicy="no-referrer" alt="image"></p><p><span>Una vez que hayas visto las capas y hayas pensado un poco sobre el asunto, deberás de contestar a las siguientes preguntas de manera justificada. No es necesario que te extiendas demasiado. Un par de folios es más que suficiente. Sube el archivo en formato editable (no pdf, por favor) al classroom. De esa forma podré comentar tu trabajo más fácilmente.</span></p><ul><li><p><span>Sobre el mapa &quot;imputado&quot;:</span></p><ul><li><span>¿Qué ventajas tendría usarlo para nuestro objetivo?.  Descríbelas brevemente.</span></li><li><span>¿Qué desventajas o problemas puedes identificar?. Descríbelas brevemente.</span></li><li><span>Propón alguna forma de minimizar las desventajas de este mapa.</span></li></ul></li><li><p><span>Sobre el mapa interpolado:</span></p><ul><li><span>¿Qué ventajas tendría usarlo para nuestro objetivo?.  Descríbelas brevemente.</span></li><li><span>¿Qué desventajas o problemas puedes identificar?. Descríbelas brevemente.</span></li><li><span>Propón alguna forma de minimizar las desventajas de este mapa.</span></li></ul></li><li><p><span>Sobre el mapa de Copernicus:</span></p><ul><li><span>¿Qué ventajas tendría usarlo para nuestro objetivo?.  Descríbelas brevemente.</span></li><li><span>¿Qué desventajas o problemas puedes identificar?. Descríbelas brevemente.</span></li><li><span>Propón alguna forma de minimizar las desventajas de este mapa.</span></li></ul></li><li><p><span>¿Cuál de los tres mapas usarías para tu trabajo? Justifica tu respuesta.</span></p></li></ul><p>&nbsp;</p><h2 id='evaluación'><span>Evaluación</span></h2><p><span>Esta tarea no lleva asociado un proceso de calificación. Es decir, no tendrás una nota numérica. Sí habrá evaluación. Es decir, leeré vuestras aportaciones y trataré de hacer aportaciones constructivas que pongan de manifiesto en qué medida (en mi opinión) habéis adquirido las competencias que nos planteamos en clase.</span></p><p>&nbsp;</p></div></div>
+<div id='write'  class=''><h1 id='ejercicio-de-reflexión-sobre-los-mapas-de-densidad-que-hemos-generado'><span>Ejercicio de reflexión sobre los mapas de densidad que hemos generado</span></h1><blockquote><ul><li><strong><em><span>Versión</span></em></strong><span>: 2022-2023</span></li><li><strong><em><span>Asignatura (titulación)</span></em></strong><span>: Ciclo de gestión del dato: ecoinformática (máster conservación, gestión y restauración de la biodiversidad. UGR).</span></li><li><strong><em><span>Autor</span></em></strong><span>: Curro Bonet-García (fjbonet@uco.es)</span></li></ul></blockquote><p>&nbsp;</p><h2 id='objetivos-del-ejercicio'><span>Objetivos del ejercicio</span></h2><p><span>Esta actividad tiene los siguientes objetivos de aprendizaje:</span></p><ul><li><span>Entrenar la capacidad de comparar con criterio distintas formas de representar en el espacio una variable ambiental concreta.</span></li><li><span>Mejorar la capacidad de cuestionar la validez de un mapa en función de factores relacionados con la ecología de la variable representada. </span></li><li><span>Aprender que completar un flujo de trabajo satisfactoriamente no tiene por qué implicar que el resultado sea válido desde un punto de vista ecológico.</span></li><li><span>Evaluar una parte del conocimiento adquirido en el &quot;tema&quot; de caracterización de la densidad de los pinares de repoblación.</span></li></ul><h2 id='tareas-a-realizar'><span>Tareas a realizar</span></h2><p><span>Para satisfacer los objetivos anteriores deberás reflexionar sobre los dos mapas de densidad que hemos obtenido y sobre otro que no hemos visto en clase. Lee atentamente el siguiente texto que describe los mapas anteriores. Recuerda que </span><a href='https://rawcdn.githack.com/aprendiendo-cosas/TP_densidad_pinar_ecoinf_UGR/2022_2023/guion_densidad_pinares.html'><span>aquí</span></a><span> puedes ver el guión que describe cómo obtuvimos dos de los tres mapas de densidad comentados. </span></p><p><span>A partir de un inventario forestal (en el que se expresa la densidad en árboles/superficie) hemos obtenido dos mapas diferentes usando distintas metodologías:</span></p><p><span>Mediante imputación hemos asignado a todos los polígonos del mismo estrato la densidad promedio de todas las parcelas que hay en dicho estrato. De esta forma podemos asignar valores de densidad a los polígonos en los que no haya caído ninguna parcela de inventario. La siguiente imagen muestra el resultado obtenido en una zona concreta de Sierra Nevada. La línea roja representa el límite norte del espacio protegido (descarga </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2022-2023/geoinfo/pnatural_23030.zip'><span>aquí</span></a><span> el fichero de formas con los límites de Sierra Nevada). </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2022-2023/geoinfo/densidad_pinar_x_estratos.tif'><span>Aquí</span></a><span> puedes descargar la capa de densidad obtenida de esta forma.</span></p><p><img src="https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2022-2023/imagenes/imputacion.jpeg" referrerpolicy="no-referrer" alt="image"></p><p>&nbsp;</p><p><span>Además, mediante la técnica de interpolación más sencilla (IDW), obtuvimos otro mapa de densidad de los pinares de repoblación. En este caso asumimos que la densidad de un punto en el que no hay inventarios depende de la densidad de los puntos que tenga más cerca. La siguiente imagen muestra el resultado obtenido. Y </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2022-2023/geoinfo/densidad_pinar_interpolada.tif'><span>aquí</span></a><span> puedes descargar la capa de densidad obtenida de esta forma. </span></p><p><img src="https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2022-2023/imagenes/interpolacion.jpeg" referrerpolicy="no-referrer" alt="image"></p><p><span>Al margen de las dos capas anteriores os paso </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2022-2023/geoinfo/TCD_pines.tif'><span>aquí</span></a><span> otro mapa que muestra la densidad de los pinares de Sierra Nevada. En esta ocasión se ha obtenido mediante teledetección. En este mapa la densidad se expresa en porcentaje de cobertura del suelo, no en árboles por superficie como en los casos anteriores. Esta capa procede de un producto generado para toda Europa por el programa </span><a href='https://www.copernicus.eu/en'><span>Copernicus</span></a><span>. </span><a href='https://land.copernicus.eu/pan-european/high-resolution-layers/forests/tree-cover-density/status-maps/tree-cover-density-2018'><span>Aquí</span></a><span> tienes el enlace de descarga. Y </span><a href='https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2022-2023/biblio/Forest_Technical_Specs_Public_v11.pdf'><span>aquí</span></a><span> un informe que detalla la metodología que han seguido para generar el mapa. Mira la página 7 del informe para saber cómo se ha calculado la densidad del bosque. La siguiente imagen muestra el aspecto de la densidad según este producto en una porción de nuestra zona de estudio.</span></p><p><img src="https://github.com/aprendiendo-cosas/A_densidad_pinar_ecoinf_UGR/raw/2022-2023/imagenes/teledeteccion.jpeg" referrerpolicy="no-referrer" alt="image"></p><p><span>Una vez que hayas visto las capas y hayas pensado un poco sobre el asunto, deberás de contestar a las siguientes preguntas de manera justificada. No es necesario que te extiendas demasiado. Un par de folios es más que suficiente. Sube el archivo en formato editable (no pdf, por favor) al classroom. De esa forma podré comentar tu trabajo más fácilmente.</span></p><ul><li><p><span>Sobre el mapa &quot;imputado&quot;:</span></p><ul><li><span>¿Qué ventajas tendría usarlo para nuestro objetivo?.  Descríbelas brevemente.</span></li><li><span>¿Qué desventajas o problemas puedes identificar?. Descríbelas brevemente.</span></li><li><span>Propón alguna forma de minimizar las desventajas de este mapa.</span></li></ul></li><li><p><span>Sobre el mapa interpolado:</span></p><ul><li><span>¿Qué ventajas tendría usarlo para nuestro objetivo?.  Descríbelas brevemente.</span></li><li><span>¿Qué desventajas o problemas puedes identificar?. Descríbelas brevemente.</span></li><li><span>Propón alguna forma de minimizar las desventajas de este mapa.</span></li></ul></li><li><p><span>Sobre el mapa de Copernicus:</span></p><ul><li><span>¿Qué ventajas tendría usarlo para nuestro objetivo?.  Descríbelas brevemente.</span></li><li><span>¿Qué desventajas o problemas puedes identificar?. Descríbelas brevemente.</span></li><li><span>Propón alguna forma de minimizar las desventajas de este mapa.</span></li></ul></li><li><p><span>¿Cuál de los tres mapas usarías para tu trabajo? Justifica tu respuesta.</span></p></li></ul><p>&nbsp;</p><h2 id='evaluación'><span>Evaluación</span></h2><p><span>Esta tarea no lleva asociado un proceso de calificación. Es decir, no tendrás una nota numérica. Sí habrá evaluación. Es decir, leeré vuestras aportaciones y trataré de hacer comentarios constructivos que pongan de manifiesto en qué medida (en mi opinión) habéis adquirido las competencias que nos planteamos en clase.</span></p><p>&nbsp;</p></div></div>
 </body>
 </html>
